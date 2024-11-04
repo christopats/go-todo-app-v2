@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Todo List</title>
+    <script src="https://unpkg.com/htmx.org@2.0.2"
+        integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <h1>Your Todo List</h1>
+
+    <div id="todo-list">
+        <!-- Our todo items will be listed here dynamically -->
+        {{ block "todo-list" . }}
+    </div>
+
+    <form id="add-todo-form" hx-post="/add" hx-target="#todo-list" hx-swap="outerHTML">
+        <input type="text" name="task" placeholder="Add a new task" required>
+        <button type="submit">Add</button>
+    </form>
+
+</body>
+
+</html>

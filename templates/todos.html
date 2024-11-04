@@ -1,0 +1,13 @@
+{{template todo-list}}
+<ul>
+    {{ range . }}
+    <li>
+        {{ if .Status }}
+        <s>{{ .Task }}</s>
+        {{ else }}
+        {{ .Task }}
+        {{ end }}
+    </li>
+    {{ end }}
+</ul>
+{{end}}
